@@ -1,0 +1,72 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+header>h1{
+    margin: 0;
+    padding: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 3em;
+    text-shadow: -5px 3px 4px rgb(30, 115, 213); /* https://cssgenerator.org/text-shadow-css-generator.html*/
+    text-align: center;
+}
+
+
+h2{
+    text-align: center;
+    font-size: 20px;
+}
+
+label{
+    font-size: 1,5em;
+    font-weight: bold;
+}
+
+body{
+    background-image: url("img/1.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+main{
+    margin-left: 30%;
+  
+}
+
+#formWrapper>div{
+    border: 1px solid grey;
+    padding: 2em;
+    margin-bottom: 2em;
+    box-shadow: -21px 27px 33px -4 rgba(84, 81, 81, 0.75);
+    border-radius: 33px 40px 0px 50px; /*TR OU BLE*/
+    width: 40%;
+    background-color: rgba(240, 248, 255, 0.528);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+input{
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    border-radius: 4px;
+    border-color: rgb(22, 172, 237);
+}
+
+button{
+    background-color: rgba(56, 56, 167, 0.721);
+    padding: 1em;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+button:hover{
+    background-color: rgba(25, 123, 159, 0.807);
+    box-shadow: -6px 13px 53px 15px rgba(84,81,81,1);
+}
