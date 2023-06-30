@@ -1,0 +1,206 @@
+
+header{
+    background-color: rgba(59, 108, 199, 0.5);
+    width: 100%;
+    text-align: center;
+    
+}
+
+h1{
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Tilt Prism', cursive;
+    text-shadow: -2px 2px blue;
+}
+
+
+header>div{
+    display: inline-block;
+}
+
+body{
+    background-image: url(img/fondo.jpg) ;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+/*header>img {
+    float: left;
+}*/
+
+
+#noticias{
+   display: flex;
+   justify-content: space-evenly;
+   
+   
+}
+
+#noticia_1{
+    background-color: aquamarine;
+    border-radius: 8%;
+   height: 150px;
+   padding-left: 2%;
+   padding-right: 2%;
+
+}
+
+#noticia_2{
+    background-color: rgb(186, 183, 77);
+    border-radius: 8%;
+   height: 150px;
+   margin-left: 20px;
+   padding-left: 2%;
+   padding-right: 2%;
+}
+
+#noticia_3{
+    background-color: violet;
+    border-radius: 8%;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 150px;
+    margin-left: 20px;
+}
+
+h3{
+    text-align: center;
+}
+
+
+#comentarios{
+    padding-top:  10%;
+    margin-left: 2%;
+    display: flex; 
+}
+
+article>img{
+    height: 50px;
+    width: 50px;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+#comentario_1{
+    background-color: rgba(202, 159, 85, 0.611);
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 0 0 6px black;
+    width: 250px;
+    height: 110px;
+}
+  
+#comentario_2{
+    background-color: rgba(202, 159, 85, 0.611);
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 0 0 6px black;
+    width: 250px;
+    margin-top: 10%;
+    height: 110px;
+}
+
+#comentario_3{
+    background-color: rgba(202, 159, 85, 0.611);
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 0 0 6px black;
+    width: 250px;
+    margin-top: 10%;
+    height: 110px;
+}
+
+#com p{
+    margin-left:20px;
+    margin-top: 40px;
+   text-align: center;
+}
+
+.card {
+    background-color: #eaa7a7;
+    margin-left: 30%;
+    border-radius: 10px;
+    padding: 20px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+  
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 3%;
+}
+  
+.form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+  
+.group {
+    position: relative;
+}
+  
+.form .group label {
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: -18px;
+    left: 10px;
+    transition: all .3s ease;
+}
+  
+.form .group input,
+.form .group textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    outline: 0;
+    width: 93%;
+    background-color: transparent;
+}
+  
+.form .group input:placeholder-shown+ label, .form .group textarea:placeholder-shown +label {
+    top: 10px;
+    background-color: transparent;
+}
+  
+.form .group input:focus,
+.form .group textarea:focus {
+    border-color: #3366cc;
+}
+  
+.form .group input:focus+ label, .form .group textarea:focus +label {
+    top: -10px;
+    left: 10px;
+    background-color: #fff;
+    color: #3366cc;
+    font-weight: 600;
+    font-size: 14px;
+}
+  
+.form .group textarea {
+    resize: none;
+    height: 100px;
+}
+  
+.form button {
+    background-color: #3366cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+  
+.form button:hover {
+    background-color: #27408b;
+}
+  
+  
+
