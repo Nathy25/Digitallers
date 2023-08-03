@@ -78,7 +78,7 @@
             })
 
             $("#btnAgregarElemento").click(() => {
-                const nuevaTarea =$("#txtElemenyoLista").val()
+                const nuevaTarea =$("#txtElemetoLista").val()
                 nuevaTarea
                   && $(`<li>${nuevaTarea}</li>`)
                   .css("display", "none")
@@ -89,7 +89,7 @@
 
             $(".btn").click((evt)=>{
                 alert($(evt.target).html())
-            })
+            })  
         })
     </script>
 
@@ -101,10 +101,17 @@
     <button id="sorpresa"> <!--Si le pongo el onclick al boton es javascript obstrubsive (metiche)-->
         haceme click para tener una sorpresa
     </button>
+
+
+
     <div id="textoSorpresa">
         Sorpresaaaa!!!!!!
     </div>
     <hr>
+
+
+
+
     <h1>Segundo ejemplo</h1>
     <ul>
         <li>Mi Lista</li>
@@ -112,6 +119,10 @@
     <input id="txtElementoLista" type="text">
     <button id="btnAgregarElemento">Agregar Elementos</button>
     <hr>
+
+
+
+
     <h1>Varios botones</h1>
       <button class="btn">1</button>
       <button class="btn">2</button>
