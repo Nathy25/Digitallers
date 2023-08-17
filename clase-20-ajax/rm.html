@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Los Simpsons</title>
+    <script>
+
+       class Card {
+            Imagen;
+            Nombre;
+            Historia;
+
+            setImagen(valor){
+                this.Imagen = valor;
+            }
+
+            setTitulo(valor){
+                this.Nombre = valor;
+            }
+
+            setDescripcion(valor){
+                this.Historia = valor;
+            }   
+
+            toString() {
+                return `<div class="col-3 mb-2">
+                            <div class="card w-100 h-100">
+                                <img src="${this.Imagen}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">${this.Nombre}</h5>
+                                    <p class="card-text">${this.Historia}</p>
+                                </div>
+                            </div>
+                        </div>`
+            }
+        }
+
+        window.addEventListener("load", () => {
+            setInterval( () => {
+                fetch("https://apisimpsons.fly.dev/api/personajes?limit=20&page=2")
+                    .then((res) => {
+                        return res.json();
+                    }).then((body) => {
+                        //alert(JSON.stringify(body));
+                        let main = document.querySelector("main");
+
+                        main.innerHTML = "";
+                        for (let personaje of body.docs ){
+                            let carta = new Card();
+                            carta.setTitulo(personaje.Nombre);
+                            carta.setImagen(personaje.Imagen);
+                            carta.setDescripcion(`${personaje.Historia}`);
+                            main.innerHTML += carta;
+                        }
+
+                        
+                    });
+            },5000)
+        })
+    </script>
+</head>
+
+<body>
+    <header class="alert alert-info">
+        <h1 class="h1 text-center">Los Simpsons</h1>
+    </header>
+    <main class="mx-auto row text-center">
+        <img class="mx-auto" src="img/Loader.gif" style="width:500px"/>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+
+</html>

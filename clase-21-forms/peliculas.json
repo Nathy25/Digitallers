@@ -1,0 +1,39 @@
+{
+    "peliculas": [
+        {
+            "id": 1,
+            "nombre": "7u76u",
+            "genero": "7ug67u",
+            "año": 2000,
+            "puntuacion": 10
+        },
+        {
+            "id": 2,
+            "nombre": "rtrt",
+            "genero": "etr",
+            "año": 2000,
+            "puntuacion": 10
+        },
+        {
+            "id": 3,
+            "nombre": "eytry",
+            "genero": "tyry",
+            "año": 2000,
+            "puntuacion": 10
+        },
+        {
+            "id": 4,
+            "nombre": "tyrtyr",
+            "genero": "tyrty",
+            "año": 2000,
+            "puntuacion": 10
+        },
+        {
+            "id": 5,
+            "nombre": "sdfg",
+            "genero": "dfsdf",
+            "año": 2000,
+            "puntuacion": 10
+        }
+    ]
+}
