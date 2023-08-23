@@ -1,42 +1,39 @@
-
-class Movimiento{
-    monto 
+class Movimiento {
+    monto
     concepto
 
-    constructor(monto, concepto){
+    constructor(monto, concepto) {
         this.monto = monto;
         this.concepto = concepto;
     }
 
-    getMonto(){
+    getMonto() {
         return this.monto;
     }
 
     getConcepto() {
-        return this.conceptos;
+        return this.concepto;
     }
 }
 
-
-
-class Cuenta{
+class Cuenta {
     numero;
     titular;
     //saldo;
-    movimiento = []
+    movimientos = [];
 
-    constructor(numero, titular){
+    constructor(numero, titular) {
         this.numero = numero;
         this.titular = titular;
         //this.saldo = 0;
     }
 
-    depositar(monto, concepto){
+    depositar(monto, concepto) {
         let movimiento = new Movimiento(monto, concepto);
         this.movimientos.push(movimiento);
     }
 
-    retirar(monto, concepto){
+    retirar(monto, concepto) {
         if (this.getSaldo() >= monto) {
             let movimiento = new Movimiento(-monto, concepto);
             this.movimientos.push(movimiento);
@@ -47,21 +44,20 @@ class Cuenta{
         let saldo = 0;
         for (let movimiento of this.movimientos) {
             saldo += movimiento.getMonto();
-        }   
+        }
         return saldo;
     }
 
     getNumero() {
-        return this.numero
+        return this.numero;
     }
 
     toString() {
-        return `(${this.numero}) ${this.titular} [saldo ${this.getSaldo()}]`
+        return `(${this.numero}) ${this.titular} [Saldo ${this.getSaldo()}]`
     }
 }
 
-
-class Banco{
+class Banco {
     nombre;
     cuentas = [];
 
@@ -70,7 +66,7 @@ class Banco{
     }
 
     abrirCuenta(titular) {
-        let numero = Math.round(Math.random() * 100000);
+        let numero = Math.round(Math.random() * 1000000);
         let cuenta = new Cuenta(numero, titular);
         this.cuentas.push(cuenta);
     }
@@ -88,4 +84,3 @@ class Banco{
         return null;
     }
 }
-
