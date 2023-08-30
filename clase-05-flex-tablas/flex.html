@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Demo</title>
+    <style>
+        .cajita{
+            width: 100px;
+            background-color: red;
+            margin: 1em;
+        }
+
+        .cajita1{
+            height: 100px;
+        }
+
+        .cajita2{
+            height: 50px;
+        }
+
+        .cajita3{
+            height: 150px;
+        }
+
+        section{
+            display: flex;
+            justify-content: space-evenly; /*Para row -===> Horizontal;*/
+            align-items: flex-end;         /*Vertical*/
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="cajita cajita1"></div>
+        <div class="cajita cajija2"></div>
+        <div class="cajita cajita 3"></div>
+    </section>
+</body>
+</html>
