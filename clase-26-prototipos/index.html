@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototipos</title>
+
+    <script>
+        //sin objeto
+        //let nombre = "Natalia"
+        //let apellido = "Durante";
+
+        //A nivel datos un objeto es una manera de agrupar variables 
+        //Para que los datos esten juntos
+        //Forma que tiene JavaScript de representar datos JSON
+        //Sirve para representar datos estructurados
+
+        let persona = {
+            nombre : "Glori",
+            apellido : "Delgadillo"
+        }
+
+        let persona2 = {
+            nombre : "Natalia",
+            lastName : "Durante",
+            age : 32
+        }
+
+        //persona y persona2 son dos objetos genericos (sin tipo)
+
+        //Manejo de objetos
+        //IMPORTANTE => No se esta creando dos objetos nuevos, aputando a los que ya existen
+        //              CREAMOS UN OBJETO NUEVO CON : =>  { } 
+
+        let p1 = persona;
+        let p2 = persona;
+        //p1 === persona >> true
+
+        //Vimos que son el mismo objeto.
+        //Como hago si en vez de que sea el mismo quiero una copia?
+        let = copia1 = {
+            nombre : "Natalia",
+            apellido : "Durante"
+        };
+        //copia1 === falso
+
+        //Vamos a ver otras dos maneras de hacer una copia
+        let copia2 = Object.create(persona); //copia2 === persona es false
+        let copia3 = {...persona}; //copia3 === persina es false
+
+        //Vamos a itroducir el concepto de Tipo
+        //Un tipo lo vamos vamos a usar para definir las caracteristicas que quiero que tengan
+        //un conjunto de objetos
+        //Un tipo de la forma "tradicional"
+        //Me doy cuenta que es un tipo porque la P esta en mayusculas
+        //Esta funcion "especial" se conoce como funcion Constructora
+        function Persona(nombre, apellido){
+            this.nombre = nombre;
+            this.apellido = apellido;
+        }
+        let personaTipada = new Persona("Juan", "Perez");
+        let personaTipada2 = new Persona("Alicia", "Bermudez");
+
+        //Ahora con la forma "modera de escribir un tipo"
+        //Esta forma se definio a partir de la version ECMASCRIPT 6 
+        //Es exactamente lo mismo que ña forma anterior
+        class Person{
+            nombre;
+            apellido;
+
+            constructor(nombre, apellido){
+                console.log("Se esta creando una persona");
+                this.nombre = nombre;
+                this.apellido = apellido;
+            }
+        }
+        let personaModerna = new Person("Natalia", "Durante"); //Invocando el constructor
+
+        //****************************************************
+        //
+        // HERENCIA 
+        //
+
+        //En el mundo de objetos sin tipo
+        let programador = {...persona}; //Object.create(persona);
+        programador.lenguaje = "Javascript";
+        //Otra manera
+        let otroProgramador = {
+            ...persona,
+            lenguaje : "Javascript"
+        }
+
+        //Otra manera (parecida pero no igual)
+        let otroProgramadorMas = {
+            lenguaje: "Python",
+            __proto__ : persona
+        }
+
+        //En el mundo Javascript moderno ECMASript
+        class Programmer extends Person{
+            lenguaje;
+
+            constructor (nombre, apellido){
+                super(nombre, apellido); //Invoco el constructor de persona
+                console.log("Se esta creando un programador");
+                this.lenguaje = lenguaje;
+            }
+        }
+
+        let elon = new Programmer("Elon","Musk","Javascript");
+        let mark = new Programmer("Mark","Zuckemberg","C++");
+        let tim = new Programmer("tim","Bernes","Python");
+
+        //Ahora la magia de Javascript
+        //elon.__proto__ === Programmer.prototype << true
+        //elon.__proto__.__proto__ === Person.prototype <<< true
+        Programmer.prototype.sistemaOperativo = "Windows";
+
+        let arreglo = [1,2,3,4];
+        let arreglo2 = new Array(1,2,3,4);
+        Array.prototype.cantidad = function(){
+            return this.length;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

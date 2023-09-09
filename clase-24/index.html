@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 24</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<script>
+    let datos = [
+        { id:1, nombre: "Los juegos del hambre", autor: "Susana Collins", genero: "Aventura", paginas: 54, puntuacion: 10 },
+        { id:2, nombre: "Amar y no depender", autor: "Walter Riso", genero: "Autoayuda", paginas: 54, puntuacion: 10 },
+        { id:3, nombre: "El principito", autor: "Antoine de Saint-Exupery", genero: "Ficcion", paginas: 54, puntuacion: 10 },
+        { id:4, nombre: "Arde la vida", autor: "Magali Tajes", genero: "Autoayuda", paginas: 54, puntuacion: 10 },
+        { id:5, nombre: "Caos", autor: "Magali Tajes", genero: "Autoayuda", paginas: 54, puntuacion: 10 },
+        { id:6, nombre: "Padre rico, Padre pobre", autor: "Robert Kiyosaki", genero: "Financiero", paginas: 54, puntuacion: 10 },
+        { id:7, nombre: "", autor: "", genero: "", paginas: 54, puntuacion: 10 },
+    ]
+
+    function cargarIdLibro(evt){
+        console.log(evt.target.id);
+        evt.dataTransfer.setData("text", evt.target.id);cargarIdElemento
+    }
+
+    function mostrarLibros(libros) {
+        document.getElementById("libros").innerHTML =
+        libros.map((e) => (
+            `<li class='list-group-item' draggable="true" id="libro${e.id}" ondragstart="cargarIdElemento(event)">
+                ${e.nombre}
+            </li>`
+        )).join(" ");
+
+        document.getElementById("totalPaginas").innerHTML = 
+        libros.reduce((acumulador, libro) => {
+            return acumulador + libro.paginas 
+        }, 0)
+    }
+
+    window.addEventListener("load",() => {
+        datos.forEach((e)=>{
+            document.getElementById("libros").innerHTML += `<li class='list-group-item'>${e.nombre}</li>`;
+        })
+
+      document.getElementById("libros").innerHTML =
+            datos.map((e) => (`<li class='list-group-item'>${e.nombre}</li>`)).join(" ");
+
+        document.getElementById("totalPaginas").innerHTML = datos.reduce((acumulador, libro) => { 
+            return acumulador + libro.paginas }, 0)
+            mostrarLibros(datos);
+
+        document.getElementById("textFilter").addEventListener("keyup", (evt) => {
+            let datosFiltrados = datos.filter((p) => {
+                return p.nombre.toLowerCase().includes(evt.target.value.toLowerCase())
+            });
+
+           /* document.getElementById("libros").innerHTML = 
+            datosFiltrados.map((e) => 
+            (`<li class='list-group-item'>${e.nombre}</li>`)).join(" ");
+
+            document.getElementById("totalPaginas").innerHTML = datosFiltrados.reduce((acumulador, libro) => {
+                return acumulador + libros.paginas
+            }, 0)*/
+            mostrarLibros(datosFiltrados);
+        })
+    });
+        function aceptarElemento(ev) {
+            ev.preventDefault();
+        }
+
+        function drop(evt) {
+            let idLibro = evt.dataTransfer.getData("text");
+            let li = document.getElementById(idLibro);
+            let ulSeleccionados = document.getElementById("librosSeleccionados");
+            ulSeleccionados.appendChild(li);
+        }
+   
+</script>
+
+<header class="bg-info text-light text-center p-3 mb-5">
+    <h1>&#10084; Clase 24&#10084</h1>
+</header>
+<body>
+    <main class="container row">
+        <div class="col-6">
+            <h2>Libros Disponibles</h2>
+            <input id="textFilter" type="text" class="form-control" value="dsds">
+            <ul id="libros" class="list-goup">
+
+            </ul>
+            <h3>Total Paginas <span id="totalPaginas"></span></h3>
+        </div>
+        <div>
+            <h2>Libros Seleccionados</h2>
+            <ul id="librosSeleccionados" class="list-goup">
+
+            </ul>
+            <div class="bg-secondary" ondragover="aceptarElemento(event)" ondrop="drop(event)">
+                Arrastrar libros seleccionados aqui
+            </div>
+        </div>
+    </main>
+</body>
+</html>
